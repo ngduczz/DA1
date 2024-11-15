@@ -27,4 +27,19 @@ define('DB_USERNAME', 'root');
 
 define('DB_PASSWORD', '');
 
-define('DB_NAME', '');
+define('DB_NAME', 'da1_hhd');
+
+define('id_trangthai_chuaxacnhan',       1);
+define('id_trangthai_xacnhan',       2);
+define('id_trangthai_danggiao',       5);
+define('id_trangthai_dagiao',       6);
+define('id_trangthai_huy',       7);
+define('id_trangthai_thanhcong',       8);
+define('id_trangthai_thatbai',       9);
+
+define('id_trangthaithanhtoan_chuathanhtoan',       1);
+define('id_trangthaithanhtoan_dathanhtoan',       2);
+define('id_trangthaithanhtoan_dahuy',       3);
+
+define('id_thanhtoan_tienmat',       3);
+define('id_thanhtoan_chuyenkhoan',       4);

@@ -1,43 +1,69 @@
+<head>
+    <style>
+        .table th,
+        .table td {
+            vertical-align: middle;
+            text-align: center;
+        }
+    </style>
+</head>
 <div class="container-fluid">
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800"><?= $title ?>
-        <a href="<?= BASE_URL_ADMIN ?>?act=cate-create" class="btn btn-primary">Create</a>
-    </h1>
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">
-                Danh sách danh mục
-            </h6>
+            <h3 class="m-0 font-weight-bold text-primary">
+                Danh Sách Tài Khoản
+                <a href="<?= BASE_URL_ADMIN ?>?act=user-create" class="btn btn-primary">Thêm mới</a>
+            </h3>
         </div>
         <div class="card-body">
+            <?php if (isset($_SESSION['success'])) : ?>
+                <div class="alert alert-danger">
+                    <?= $_SESSION['success'] ?>
+                </div>
+                <?php unset($_SESSION['success']); ?>
+            <?php endif; ?>
+            <?php if (isset($_SESSION['error'])) : ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <ul class="list-unstyled m-0">
+                        <li><?= $_SESSION['error'] ?></li>
+                    </ul>
+                </div>
+                <?php unset($_SESSION['error']); ?>
+            <?php endif; ?>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>Họ và tên</th>
                             <th>Ảnh</th>
-                            <th>Tên danh mục</th>
-                            <th>Chức năng</th>
+                            <th>Ngày sinh</th>
+                            <th>Địa chỉ</th>
+                            <th>Số điện thoại</th>
+                            <th>Chức vụ</th>
+                            <th>Tính năng</th>
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th>ID</th>
-                            <th>Ảnh</th>
-                            <th>Tên danh mục</th>
-                            <th>Chức năng</th>
-                        </tr>
-                    </tfoot>
                     <tbody>
+                        <?php foreach ($users as $index => $item) : ?>
                             <tr>
-                                <th>
-                                    <a href="<?= BASE_URL_ADMIN ?>?act=cate-detail&id=<?= $cate['id'] ?>" class="btn btn-info">Show</a>
-                                    <a href="<?= BASE_URL_ADMIN ?>?act=cate-update&id=<?= $cate['id'] ?>" class="btn btn-warning">Update</a>
-                                    <a href="<?= BASE_URL_ADMIN ?>?act=cate-delete&id=<?= $cate['id'] ?>" class="btn btn-primary" onclick=" return confirm('Co xoa khong ?')">Delete</a>
-                                </th>
-
+                                <td><?= $item['ten'] ?></td>
+                                <td><img src="<?= BASE_URL . $item['anh'] ?>" alt="Ảnh <?= $index; ?>" width="65"></td>
+                                <td><?= $item['ngaysinh'] ?></td>
+                                <td><?= $item['diachi'] ?></td>
+                                <td><?= $item['sodienthoai'] ?></td>
+                                <td><?= $item['trangthai']
+                                        ? '<span class="badge badge-success">Admin</span>'
+                                        : ' <span class="badge badge-warning">Member</span>'
+                                    ?></td>
+                                <td>
+                                    <a href="<?= BASE_URL_ADMIN ?>?act=user-show&id=<?= $item['id'] ?>" class="btn btn-info"><i class="fa-solid fa-circle-info"></i></a>
+                                    <a href="<?= BASE_URL_ADMIN ?>?act=user-update&id=<?= $item['id'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="<?= BASE_URL_ADMIN ?>?act=user-delete&id=<?= $item['id'] ?>" class="btn btn-primary" onclick="return confirm('Có muốn xóa không ?')"><i class="fa-regular fa-trash-can"></i></a>
+                                </td>
                             </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>

@@ -1,0 +1,143 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="ER Diagram">
+    <mxGraphModel dx="727" dy="500" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Bảng 1 -->
+        <mxCell id="1" value="sanpham" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="60" width="120" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- Bảng 2 -->
+        <mxCell id="2" value="thuoctinh" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="60" width="120" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- Bảng 3 -->
+        <mxCell id="3" value="sanpham_thuoctinh" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="60" width="120" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- Bảng 4 -->
+        <mxCell id="4" value="bien_the" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="60" width="120" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- Bảng 5 -->
+        <mxCell id="5" value="anhsp" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="60" width="120" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- Bảng 6 -->
+        <mxCell id="6" value="order" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="240" width="120" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- Bảng 7 -->
+        <mxCell id="7" value="order_detail" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="240" width="120" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- Bảng 8 -->
+        <mxCell id="8" value="customer" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="240" width="120" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- Bảng 9 -->
+        <mxCell id="9" value="supplier" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="240" width="120" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- Bảng 10 -->
+        <mxCell id="10" value="category" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="240" width="120" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- Bảng 11 -->
+        <mxCell id="11" value="payment" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="420" width="120" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- Bảng 12 -->
+        <mxCell id="12" value="shipping" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="420" width="120" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- Bảng 13 -->
+        <mxCell id="13" value="review" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="420" width="120" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- Bảng 14 -->
+        <mxCell id="14" value="discount" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="420" width="120" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- Bảng 15 -->
+        <mxCell id="15" value="return" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="420" width="120" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- Mối quan hệ -->
+        <mxCell id="relation_sanpham_thuoctinh" edge="1" source="1" target="2" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="relation_sanpham_thuoctinh_2" edge="1" source="1" target="3" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="relation_thuoctinh_bien_the" edge="1" source="2" target="4" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="relation_bien_the_anhsp" edge="1" source="4" target="5" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="relation_order_customer" edge="1" source="6" target="8" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="relation_order_order_detail" edge="1" source="6" target="7" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="relation_order_detail_sanpham" edge="1" source="7" target="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="relation_supplier_sanpham" edge="1" source="9" target="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="relation_category_sanpham" edge="1" source="10" target="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="relation_payment_order" edge="1" source="11" target="6" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="relation_shipping_order" edge="1" source="12" target="6" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="relation_review_sanpham" edge="1" source="13" target="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="relation_discount_sanpham" edge="1" source="14" target="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="relation_return_order" edge="1" source="15" target="6" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

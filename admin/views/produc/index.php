@@ -1,43 +1,72 @@
+<head>
+    <style>
+        .table th,
+        .table td {
+            vertical-align: middle;
+            text-align: center;
+        }
+    </style>
+</head>
 <div class="container-fluid">
-    <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800"><?= $title ?>
-        <a href="<?= BASE_URL_ADMIN ?>?act=cate-create" class="btn btn-primary">Create</a>
-    </h1>
-    <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">
-                Danh sách danh mục
-            </h6>
+            <h3 class="m-0 font-weight-bold text-primary">
+                Danh Sách Sản Phẩm
+                <a href="<?= BASE_URL_ADMIN ?>?act=produc-create" class="btn btn-primary">Thêm mới</a>
+            </h3>
         </div>
         <div class="card-body">
+            <?php if (isset($_SESSION['success'])) : ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <?= $_SESSION['success'] ?>
+                </div>
+                <?php unset($_SESSION['success']); ?>
+            <?php endif; ?>
+
+            <?php if (isset($_SESSION['error'])) : ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <ul class="list-unstyled m-0">
+                        <?php foreach ($_SESSION['error'] as $error) : ?>
+                            <li><?= htmlspecialchars($error) ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+                <?php unset($_SESSION['error']); ?>
+            <?php endif; ?>
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" style="text-align: center;" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Ảnh</th>
-                            <th>Tên danh mục</th>
+                            <th width="5%">Mã</th>
+                            <th width="25%">Ảnh</th>
+                            <th width="20%">Tên sản phẩm</th>
+                            <th width="10%">Loại</th>
+                            <th width="10%">Giá</th>
+                            <th width="15%">Ngày xuất bản</th>
                             <th>Chức năng</th>
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th>ID</th>
-                            <th>Ảnh</th>
-                            <th>Tên danh mục</th>
-                            <th>Chức năng</th>
-                        </tr>
-                    </tfoot>
-                    <tbody>
-                            <tr>
-                                <th>
-                                    <a href="<?= BASE_URL_ADMIN ?>?act=cate-detail&id=<?= $cate['id'] ?>" class="btn btn-info">Show</a>
-                                    <a href="<?= BASE_URL_ADMIN ?>?act=cate-update&id=<?= $cate['id'] ?>" class="btn btn-warning">Update</a>
-                                    <a href="<?= BASE_URL_ADMIN ?>?act=cate-delete&id=<?= $cate['id'] ?>" class="btn btn-primary" onclick=" return confirm('Co xoa khong ?')">Delete</a>
-                                </th>
 
+                    <tbody>
+                        <?php foreach ($produc as $produc) : ?>
+                            <tr>
+                                <td>#<?= $produc['id'] ?></td>
+                                <td>
+                                    <div class="img-wrapper">
+                                        <img src="<?= BASE_URL . $produc['anh_chinh'] ?>" width="80" style="border: 2px solid red; margin-bottom: 5px;">
+                                    </div>
+                                </td>
+                                <td><?= $produc['ten'] ?></td>
+                                <td><?= $produc['ten_danhmuc'] ?></td>
+                                <td><?= $produc['gia'] ?></td>
+                                <td>Đã xuất bản<br><?= $produc['xuatban'] ?></td>
+                                <td>
+                                    <a href="<?= BASE_URL_ADMIN ?>?act=produc-detail&id=<?= $produc['id'] ?>" class="btn btn-info"><i class="fa-solid fa-circle-info"></i></a>
+                                    <a href="<?= BASE_URL_ADMIN ?>?act=produc-update&id=<?= $produc['id'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="<?= BASE_URL_ADMIN ?>?act=produc-delete&id=<?= $produc['id'] ?>" class="btn btn-primary" onclick="return confirm('Có xóa không ?')"><i class="fa-regular fa-trash-can"></i></a>
+                                </td>
                             </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>

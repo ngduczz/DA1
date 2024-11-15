@@ -1,193 +1,138 @@
-<section class="content">
-      <div class="container-fluid">
+<div class="container-fluid">
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h3 class="m-0 font-weight-bold text-primary">
+        Thêm Sản Phẩm
+      </h3>
+    </div>
+    <div class="card-body">
+      <?php if (isset($_SESSION['success'])) : ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <?= $_SESSION['success'] ?>
+        </div>
+        <?php unset($_SESSION['success']); ?>
+      <?php endif; ?>
+
+      <?php if (isset($_SESSION['errors'])) : ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <ul class="list-unstyled m-0">
+            <?php foreach ($_SESSION['errors'] as $error) : ?>
+              <li><?= $error ?></li>
+            <?php endforeach; ?>
+          </ul>
+        </div>
+        <?php unset($_SESSION['errors']); ?>
+      <?php endif; ?>
+      <form action="" enctype="multipart/form-data" method="POST">
         <div class="row">
           <div class="col-md-6">
 
-            <div class="card card-danger">
-              <div class="card-header">
-                <h3 class="card-title">Input masks</h3>
+            <!-- <div class="mb-3">
+              <label for="" class="form-label">Tên sản phẩm</label> <br>
+              <input type="text" class="form-control" name="ten">
+            </div> -->
+
+            <div class="form-group">
+              <label>Tên sản phẩm:</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa-solid fa-file-signature"></i></span>
+                </div>
+                <input type="text" class="form-control" name="ten" value="">
               </div>
-              <div class="card-body">
-                <!-- Date dd/mm/yyyy -->
-                <div class="form-group">
-                  <label>Date masks:</label>
-
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
-                    </div>
-                    <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
-                  </div>
-                  <!-- /.input group -->
-                </div>
-                <!-- /.form group -->
-
-                <!-- Date mm/dd/yyyy -->
-                <div class="form-group">
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
-                    </div>
-                    <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="mm/dd/yyyy" data-mask>
-                  </div>
-                  <!-- /.input group -->
-                </div>
-                <!-- /.form group -->
-
-                <!-- phone mask -->
-                <div class="form-group">
-                  <label>US phone mask:</label>
-
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                    </div>
-                    <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask>
-                  </div>
-                  <!-- /.input group -->
-                </div>
-                <!-- /.form group -->
-
-                <!-- phone mask -->
-                <div class="form-group">
-                  <label>Intl US phone mask:</label>
-
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                    </div>
-                    <input type="text" class="form-control"
-                           data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask>
-                  </div>
-                  <!-- /.input group -->
-                </div>
-                <!-- /.form group -->
-
-                <!-- IP mask -->
-                <div class="form-group">
-                  <label>IP mask:</label>
-
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fas fa-laptop"></i></span>
-                    </div>
-                    <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
-                  </div>
-                  <!-- /.input group -->
-                </div>
-                <!-- /.form group -->
-
-              </div>
-              <!-- /.card-body -->
             </div>
-            <!-- /.card -->
 
-            <div class="card card-info">
-              <div class="card-header">
-                <h3 class="card-title">Color & Time Picker</h3>
-              </div>
-              <div class="card-body">
-                <!-- Color Picker -->
-                <div class="form-group">
-                  <label>Color picker:</label>
-                  <input type="text" class="form-control my-colorpicker1">
-                </div>
-                <!-- /.form group -->
-
-                <!-- Color Picker -->
-                <div class="form-group">
-                  <label>Color picker with addon:</label>
-
-                  <div class="input-group my-colorpicker2">
-                    <input type="text" class="form-control">
-
-                    <div class="input-group-append">
-                      <span class="input-group-text"><i class="fas fa-square"></i></span>
-                    </div>
-                  </div>
-                  <!-- /.input group -->
-                </div>
-                <!-- /.form group -->
-
-                <!-- time Picker -->
-                <div class="bootstrap-timepicker">
-                  <div class="form-group">
-                    <label>Time picker:</label>
-
-                    <div class="input-group date" id="timepicker" data-target-input="nearest">
-                      <input type="text" class="form-control datetimepicker-input" data-target="#timepicker"/>
-                      <div class="input-group-append" data-target="#timepicker" data-toggle="datetimepicker">
-                          <div class="input-group-text"><i class="far fa-clock"></i></div>
-                      </div>
-                      </div>
-                    <!-- /.input group -->
-                  </div>
-                  <!-- /.form group -->
-                </div>
-              </div>
-              <!-- /.card-body -->
+            <div class="mb-3 mt-3">
+              <label for="" class="form-label">Ảnh sản phẩm:</label> <br>
+              <input style="padding: 3px;" type="file" class="form-control" name="anh_chinh" id="anh">
             </div>
-            <!-- /.card -->
+            <div class="mb-3 mt-3">
+              <label for="" class="form-label">Thư viện ảnh:</label> <br>
+              <input style="padding: 3px;" type="file" class="form-control" name="anh[]" id="anh" multiple>
+            </div>
+            <!-- <div class="mb-3 mt-3">
+              <label for="" class="form-label">Giá</label> <br>
+              <input type="number" min=0 class="form-control" name="gia">
+            </div> -->
 
+            <div class="form-group">
+              <label>Giá:</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa-solid fa-hand-holding-dollar"></i></span>
+                </div>
+                <input type="number" min=0 class="form-control" name="gia" value="">
+              </div>
+              <!-- /.input group -->
+            </div>
+            <div class="form-group">
+              <label>Giảm giá:</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa-solid fa-hand-holding-dollar"></i></span>
+                </div>
+                <input type="number" min=0 class="form-control" name="giamgia" value="">
+              </div>
+              <!-- /.input group -->
+            </div>
+            <!-- <div class="mb-3 mt-3">
+              <label for="" class="form-label">Số lượng</label> <br>
+              <input type="number" min=0 class="form-control" name="soluong">
+            </div> -->
+
+            <div class="form-group">
+              <label>Số lượng:</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa-solid fa-cash-register"></i></span>
+                </div>
+                <input type="number" min=0 class="form-control" name="soluong" value="">
+              </div>
+              <!-- /.input group -->
+            </div>
+
+            <div class="mb-3 mt-3">
+              <label for="" class="form-label">Danh mục</label> <br>
+              <select class="form-control" name="id_danhmuc" id="id_danhmuc">
+                <?php foreach ($category as $category) : ?>
+                  <option value="<?= $category['id'] ?>"><?= $category['ten_danhmuc'] ?></option>
+                <?php endforeach; ?>
+              </select>
+            </div>
+
+            <!-- <div class="mb-3 mt-3">
+              <label for="" class="form-label">Mô tả</label> <br>
+              <input type="text" class="form-control" name="mota">
+            </div> -->
+            <div class="form-group">
+              <label>Mô tả ngắn:</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa-solid fa-audio-description"></i></span>
+                </div>
+                <input type="text" class="form-control" name="motangan" value="">
+              </div>
+              <!-- /.input group -->
+            </div>
+            <div class="form-group">
+              <label>Mô tả:</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa-solid fa-audio-description"></i></span>
+                </div>
+                <input type="text" class="form-control" name="mota" value="">
+              </div>
+              <!-- /.input group -->
+            </div>
           </div>
-          <!-- /.col (left) -->
-          <div class="col-md-6">
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Date picker</h3>
-              </div>
-              <div class="card-body">
-                <!-- Date -->
-                <div class="form-group">
-                  <label>Date:</label>
-                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                        <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate"/>
-                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Date and time -->
-                <div class="form-group">
-                  <label>Date and time:</label>
-                    <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
-                        <input type="text" class="form-control datetimepicker-input" data-target="#reservationdatetime"/>
-                        <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
-                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.form group -->
-                <!-- Date range -->
-                <div class="form-group">
-                  <label>Date range:</label>
-
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">
-                        <i class="far fa-calendar-alt"></i>
-                      </span>
-                    </div>
-                    <input type="text" class="form-control float-right" id="reservation">
-                  </div>
-                  <!-- /.input group -->
-                </div>
-                <!-- /.form group -->
-
-                <!-- Date and time range -->
-                <div class="form-group">
-                  <label>Date and time range:</label>
-
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="far fa-clock"></i></span>
-                    </div>
-                    <input type="text" class="form-control float-right" id="reservationtime">
-                  </div>
-                  <!-- /.input group -->
-                </div>
-              </div>
         </div>
-      </div>
-      <!-- /.container-fluid -->
-    </section>
+
+        <div class="mt-4">
+          <a href="<?= BASE_URL_ADMIN ?>?act=produc" class="btn btn-primary"><i class="fa-solid fa-arrow-right-from-bracket"></i> Quay lại</a>
+          <button type="submit" class="btn btn-warning">Thêm mới</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

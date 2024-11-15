@@ -10,7 +10,7 @@
 
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                <h1 class="h3 mb-0 text-gray-800">Thống kê</h1>
                 <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
             </div>
 
@@ -171,6 +171,155 @@
                 </div>
             </div>
 
+            <div class="row">
+                <div class="card col-xl-8 col-lg-8">
+                    <div class="card-header border-0">
+                        <h3 class="card-title">Products</h3>
+                        <div class="card-tools">
+                            <a href="#" class="btn btn-tool btn-sm">
+                                <i class="fas fa-download"></i>
+                            </a>
+                            <a href="#" class="btn btn-tool btn-sm">
+                                <i class="fas fa-bars"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-body table-responsive p-0">
+                        <table class="table table-striped table-valign-middle">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Price</th>
+                                    <th>Sales</th>
+                                    <th>More</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+                                        Some Product
+                                    </td>
+                                    <td>$13 USD</td>
+                                    <td>
+                                        <small class="text-success mr-1">
+                                            <i class="fas fa-arrow-up"></i>
+                                            12%
+                                        </small>
+                                        12,000 Sold
+                                    </td>
+                                    <td>
+                                        <a href="#" class="text-muted">
+                                            <i class="fas fa-search"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+                                        Another Product
+                                    </td>
+                                    <td>$29 USD</td>
+                                    <td>
+                                        <small class="text-warning mr-1">
+                                            <i class="fas fa-arrow-down"></i>
+                                            0.5%
+                                        </small>
+                                        123,234 Sold
+                                    </td>
+                                    <td>
+                                        <a href="#" class="text-muted">
+                                            <i class="fas fa-search"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+                                        Amazing Product
+                                    </td>
+                                    <td>$1,230 USD</td>
+                                    <td>
+                                        <small class="text-danger mr-1">
+                                            <i class="fas fa-arrow-down"></i>
+                                            3%
+                                        </small>
+                                        198 Sold
+                                    </td>
+                                    <td>
+                                        <a href="#" class="text-muted">
+                                            <i class="fas fa-search"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+                                        Perfect Item
+                                        <span class="badge bg-danger">NEW</span>
+                                    </td>
+                                    <td>$199 USD</td>
+                                    <td>
+                                        <small class="text-success mr-1">
+                                            <i class="fas fa-arrow-up"></i>
+                                            63%
+                                        </small>
+                                        87 Sold
+                                    </td>
+                                    <td>
+                                        <a href="#" class="text-muted">
+                                            <i class="fas fa-search"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card bg-gradient-primary col-xl-4 col-lg-4">
+                    <div class="card-header border-0">
+                        <h3 class="card-title">
+                            <i class="fas fa-map-marker-alt mr-1"></i>
+                            Visitors
+                        </h3>
+                        <!-- card tools -->
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-primary btn-sm daterange" title="Date range">
+                                <i class="far fa-calendar-alt"></i>
+                            </button>
+                            <button type="button" class="btn btn-primary btn-sm" data-card-widget="collapse" title="Collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                        <!-- /.card-tools -->
+                    </div>
+                    <div class="card-body">
+                        <div id="world-map" style="height: 250px; width: 100%;"></div>
+                    </div>
+                    <!-- /.card-body-->
+                    <div class="card-footer bg-transparent">
+                        <div class="row">
+                            <div class="col-4 text-center">
+                                <div id="sparkline-1"></div>
+                                <div class="text-white">Visitors</div>
+                            </div>
+                            <!-- ./col -->
+                            <div class="col-4 text-center">
+                                <div id="sparkline-2"></div>
+                                <div class="text-white">Online</div>
+                            </div>
+                            <!-- ./col -->
+                            <div class="col-4 text-center">
+                                <div id="sparkline-3"></div>
+                                <div class="text-white">Sales</div>
+                            </div>
+                            <!-- ./col -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                </div>
+            </div>
 
         </div>
         <!-- /.container-fluid -->

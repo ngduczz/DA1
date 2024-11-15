@@ -1,8 +1,5 @@
 <script>
     $(document).ready(function() {
-        $('#dataTable').DataTable({
-            "order" :false
-        });
-        
+        $('#dataTable').DataTable();
     });
 </script>
